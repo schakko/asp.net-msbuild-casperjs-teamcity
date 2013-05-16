@@ -1,19 +1,19 @@
-# Example of ASP.NET MVC, CasperJS and MSBuild
+# Connecting ASP.NET MVC, MSBuild, CasperJS and TeamCity
 
 ## How to use
- * start the Schakko.CasperJS.Web application
- * open your command line and navigate to Schakko.CasperJS.TestUI
+ * start the *Schakko.CasperJS.Web* application inside your Visual Studio environment
+ * open your command line and navigate to *Schakko.CasperJS.TestUI*
  * execute 
 ```
 	msbuild --host=$YOUR_IIS_URL
 ```
-The suite will fail because Fixes/Provoke_Error.js throws an error. A screenshot of every failed test is stored inside the results/ directory. You will find a file named "provoke_error_return_the_expected_content_of__my_area.png".
- * Open the Fixes/Provoke_Error.js, comment line 10 and uncomment line 11.
+The tests fail because *Fixes/Provoke_Error.js* throws an error. A screenshot of every failed test is stored inside the *results/* directory. You will find a file named *provoke_error_return_the_expected_content_of__my_area.png*.
+ * open the *Fixes/Provoke_Error.js*, comment line 10 and uncomment line 11.
  * re-run
 ```
 	msbuild --host=$YOUR_IIS_URL
 ```
- * the tests are passed. Look inside the results/ directory. There will be a file named casperjs-unittest-results.xml. This file has the xUnit format and can be understand by TeamCitys Ant JUnit runner.
+ * the tests pass. Look inside the *results/* directory. There will be a file named *casperjs-unittest-results.xml*. This file has the xUnit format and can be understand by TeamCitys Ant JUnit runner.
  
 ## Integrate in TeamCity
  * take this project as template and customize it for your needs
