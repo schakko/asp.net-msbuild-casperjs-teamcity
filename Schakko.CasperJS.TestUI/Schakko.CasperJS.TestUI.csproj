@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="TestAll" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IntegrationTestHost>http://localhost:63126</IntegrationTestHost>
+	<UnittestResultDir>$(MSBuildProjectDirectory)\results</UnittestResultDir>
+	<UnittestResult>$(UnittestResultDir)\casperjs-unittest-results.xml</UnittestResult>
+  </PropertyGroup>
+  <Target Name="TestAll">
+	<RemoveDir Directories="$(UnittestResultDir)" />
+	<MakeDir Directories="$(UnittestResultDir)" />
+	<Exec Command="$(MSBuildProjectDirectory)\Tools\casperjs\batchbin\casperjs.bat test --direct --includes=Includes/helper.js --log-level=debug --xunit=$(UnittestResult) --host=$(IntegrationTestHost) Specs/ Fixes/" />
+  </Target>
+</Project>
